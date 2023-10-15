@@ -1,0 +1,169 @@
+div {
+    text-align: center;
+    /*background-color: deepskyblue !important;*/
+    font-family: serif;
+    font-size: 110%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #58b8ec, rgb(47, 112, 231));
+}
+/*.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgb(0, 123, 255), rgb(121, 198, 200));
+}*/
+.divMain {
+    box-shadow: 5px 10px #4682B4;
+    margin:auto;
+    border: 3px solid #09124e; 
+    width: 80%;
+    height: 90%;
+    background-image: url("img/plane.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border-radius: 8px 8px 8px 8px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.divLeft {
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100%;
+    /*opacity: 0.6 ;*/
+    border-radius: 8px 0px 0px 8px;
+}
+.divRight {
+   /* opacity: 0.6;*/
+    display: flex;
+    justify-content: center;
+    float: right;
+    width: 50%;
+    height: 100%;
+    /*background-color: rgb(0, 72, 255);*/
+    border-radius: 0px 8px 8px 0px;
+    
+}
+.contentLeft{
+    /*background-color: rgb(255, 0, 200);*/
+    float: left;
+    width: 40%;
+    height: 45%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.contentRight{
+    /*background-color: rgb(242, 255, 0);*/
+    float: left;
+    width: 40%;
+    height: 45%;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.contentBotom{
+    /*background-color: rgb(0, 255, 110);*/
+    float: left;
+    width: 70%;
+    height: 45%;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+button{
+    float: left;
+}
+.progres{
+    width: 100%;
+    height: 10%;
+    /*background-color: rgb(17, 0, 255);*/
+}
+
+.imput-grup{
+    margin: 15% 5% 15%;
+    /*background-color: rgb(255, 21, 0);*/
+    display:block;
+}
+
+/*--------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+select, input[type="date"], input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+button {
+    font-size: 20px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+.wrapper{
+    display: inline-flex;
+    background: #fff;
+    height: 30px;
+    width: 60%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px 15px;
+    margin: 15% 5% 15%;
+    /*background-color: rgb(255, 21, 0);*/
+    display:block;
+  }
+  .wrapper .option{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: 2px solid lightgrey;
+    transition: all 0.3s ease;
+  }
+  input[type="radio"]{ /*so it dosent show the default circles*/
+    display: none;
+  }
+  #option-1:checked:checked ~ .option-1,
+  #option-2:checked:checked ~ .option-2{
+    border-color: #0069d9;
+    background: #0069d9;
+  }
+  #option-1:checked:checked ~ .option-1 .dot,
+  #option-2:checked:checked ~ .option-2 .dot{
+    background: #fff;
+  }
+  #option-1:checked:checked ~ .option-1 .dot::before,
+  #option-2:checked:checked ~ .option-2 .dot::before{
+    opacity: 1;
+    transform: scale(1);
+  }
+  .wrapper .option span{
+    font-size: 20px;
+    color: #808080;
+  }
+  #option-1:checked:checked ~ .option-1 span,
+  #option-2:checked:checked ~ .option-2 span{
+    color: #fff;
+  }
