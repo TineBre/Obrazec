@@ -22,8 +22,8 @@ body{
     box-shadow: 5px 10px #4682B4;
     margin:auto;
     border: 3px solid #09124e; 
-    width: 80%;
-    height: 90%;
+    width: 1500px;
+    height: 820px;
     background-image: url("img/plane.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -90,6 +90,7 @@ button{
     margin: 15% 5% 15%;
     /*background-color: rgb(255, 21, 0);*/
     display:block;
+    text-align: center;
 }
 
 /*--------------------------------------------------------------------------------------------------*/
