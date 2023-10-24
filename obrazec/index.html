@@ -1,77 +1,74 @@
-
 <html>
+
 <head>
-    <title>ticket</title>
+    <title>Airplane reservation</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
-    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="shortcut icon" href="img/paper-plane.png" />
 </head>
 
 <body>
-        <div class="divMain">
-            <div class="divLeft">
-                <div class="progres"> <!-- progres div -->
+    <div class="divMain">
+        <div class="divLeft">
+            <div class="progres"> <!-- progres div -->
+            </div>
+            <div class="contentLeft">
+                <div class="wrapper">
+                    <input type="radio" name="select" id="option-1" checked onclick="hideReturnDate()">
+                    <label for="option-1" class="option option-1">
+                        <span>One way</span>
+                    </label>
                 </div>
-                <div class="contentLeft">
-                    <div class="imput-grup">
-                        <input type="radio" id="enosmerna" name="tip-karte" value="enosmerna"
-                            onclick="hideReturnDate()">
-                        <label for="enosmerna">Enosmerna karta</label>
-                    </div>
-                    <div class="imput-grup">
-                        <label for="odhod">Mesto odhoda:</label>
-                        <select id="odhod" name="odhod">
-                            <option value="ljubljana">Ljubljana</option>
-                            <option value="maribor">Maribor</option>
-                            <option value="celje">Celje</option>
-                        </select>
-                    </div>
-                    <div class="imput-grup">
-                        <label for="datum">Datum odhoda:</label>
-                        <input type="date" id="datum" name="datum" required>
-                    </div>
-                </div>
-                <div class="contentRight">
-                    <div class="imput-grup">
-                        <input type="radio" id="povratna" name="tip-karte" value="povratna" onclick="showReturnDate()">
-                        <label for="povratna">Povratna karta</label>
-                    </div>
-                    <div class="imput-grup"> <!-- location -->
-                        <label for="prihod">Mesto prihoda:</label>
-                        <select id="prihod" name="prihod">
-                            <option value="zagreb">Zagreb</option>
-                            <option value="beograd">Beograd</option>
-                            <option value="dunaj">Dunaj</option>
-                        </select>
-                    </div>
-                    <div class="imput-grup">
-                        <label for="datum-prihoda" id="return-date-label" style="display: none;">Datum prihoda:</label>
-                        <input type="date" id="datum-prihoda" name="datum-prihoda" style="display: none;">
-                    </div>
-
-
-                </div>
-                <div class="contentBotom">
-                    <label for="razred">Izberite razred:</label>
-                    <select id="razred" name="razred">
-                        <option value="economy">Economy</option>
-                        <option value="business">Business</option>
+                <div class="imput-grup">
+                    <label for="odhod">Mesto odhoda:</label>
+                    <select id="odhod" name="odhod">
+                        <option value="ljubljana"  data-img-src="img/departure.png">Ljubljana</option>
+                        <option value="maribor">Maribor</option>
+                        <option value="celje">Celje</option>
                     </select>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <button type="submit" style="text-align: left !important;">See flights</button>
+                </div>
+                <div class="imput-grup">
+                    <label for="datum">Datum odhoda:</label>
+                    <input type="date" id="datum" name="datum" required>
+                </div>
+            </div>
+            <div class="contentRight">
+                <div class="wrapper">
+                    <input type="radio" name="select" id="option-2" onclick="showReturnDate()">
+                    <label for="option-2" class="option option-2">
+                        <span>Return</span>
+                    </label>
+                </div>
+                <div class="imput-grup"> <!-- location -->
+                    <label for="prihod">Mesto prihoda:</label>
+                    <select id="prihod" name="prihod">
+                        <option value="zagreb">Zagreb</option>
+                        <option value="beograd">Beograd</option>
+                        <option value="dunaj">Dunaj</option>
+                    </select>
+                </div>
+                <div class="imput-grup">
+                    <label for="datum-prihoda" id="return-date-label" style="display: none;">Datum prihoda:</label>
+                    <input type="date" id="datum-prihoda" name="datum-prihoda" style="display: none;">
                 </div>
 
 
             </div>
-            <div class="divRight">
-                
+            <div class="contentBotom">
+                <label for="razred">Izberite razred:</label>
+                <select id="razred" name="razred">
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                </select>
+                <button type="submit" style="text-align: left !important;">See flights</button>
             </div>
+
+
         </div>
+        <div class="divRight">
+
+        </div>
+    </div>
     <script>
         function showReturnDate() {
             document.getElementById('datum-prihoda').style.display = 'block';
