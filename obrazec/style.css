@@ -91,6 +91,10 @@ select, input[type="date"], input[type="text"] {
   
   
 }
+option{
+  display:block;
+}
+
 select#odhod option[value="Ljubljana"]   { background-image:url(img/departure.png);   }
 select#odhod option[value="Maribor"] { background-image:url(img/departure.png); }
 select#odhod option[value="celje"] { background-image:url(img/departure.png); }

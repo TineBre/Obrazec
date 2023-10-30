@@ -28,8 +28,8 @@
                     </select>
                 </div>
                 <div class="imput-grup">
-                    <label for="datum">Datum odhoda:</label>
-                    <input type="date" id="datum" name="datum" required>
+                    <label for="datum-odhoda">Datum odhoda:</label>
+                    <input type="date" id="datum-odhoda" name="datum-odhoda" required>
                 </div>
             </div>
             <div class="contentRight">
@@ -70,6 +70,7 @@
         </div>
     </div>
     <script>
+        //return date prikazan ko stisnemo return flight
         function showReturnDate() {
             document.getElementById('datum-prihoda').style.display = 'block';
             document.getElementById('return-date-label').style.display = 'block';
@@ -79,6 +80,20 @@
             document.getElementById('datum-prihoda').style.display = 'none';
             document.getElementById('return-date-label').style.display = 'none';
         }
+
+        //datumi
+        const datum1 = document.getElementById('datum-odhoda');
+        const datum2 = document.getElementById('datum-prihoda');
+
+        // Postavljanje minimalnog datuma na prvom polju na trenutni datum
+        const danas = new Date().toISOString().split('T')[0];
+        datum1.min = danas;
+
+        // Omogućavanje drugog polja kada se odabere prvi datum
+        datum1.addEventListener('change', function() {
+            datum2.disabled = false;
+            datum2.min = datum1.value;
+        });
     </script>
 </body>
 
