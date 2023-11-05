@@ -1,6 +1,5 @@
 div {
   text-align: center;
-  /*background-color: deepskyblue !important;*/
   font-family: serif;
   font-size: 110%;
 }
@@ -8,17 +7,23 @@ body{
   margin: 0;
   padding: 0;
   height: 100%;
-  background-image: linear-gradient(to bottom right, #79c0e7, #2f70e7);
+  background-image: linear-gradient(to bottom right, #93c7e3, #2f70e7);
+}
+
+.slide{
+  display: none;
+  width: 100%;
 }
 
 .divMain {
   box-shadow: 5px 10px #4682B4;
   margin:auto;
-  border: 3px solid #09124e; 
+  border: 3px solid #233398; 
   width: 1550px;
   height: 860px;
   background-image: url("img/plane.jpg");
   background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   border-radius: 8px 8px 8px 8px;
   position: absolute;
@@ -76,6 +81,10 @@ body{
   /*background-color: rgb(17, 0, 255);*/
 }
 
+.preload-images {
+  display: none;
+}
+
 .imput-grup{
   margin: 15% 5% 15%;
   /*background-color: rgb(255, 21, 0);*/
@@ -91,13 +100,7 @@ select, input[type="date"], input[type="text"] {
   
   
 }
-option{
-  display:block;
-}
 
-select#odhod option[value="Ljubljana"]   { background-image:url(img/departure.png);   }
-select#odhod option[value="Maribor"] { background-image:url(img/departure.png); }
-select#odhod option[value="celje"] { background-image:url(img/departure.png); }
 /*------------------for uper 2 buttons------------------------------------*/
 button {
   font-size: 20px;
@@ -137,7 +140,7 @@ button {
   border: 2px solid lightgrey;
   transition: all 0.3s ease;
 }
-input[type="radio"]{ /*so it dosent show the default circles*/
+input[type="radio"]{ /*ne pokaze default circles*/
   display: none;
 }
 #option-1:checked:checked ~ .option-1,

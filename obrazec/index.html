@@ -60,7 +60,8 @@
                     <option value="economy">Economy</option>
                     <option value="business">Business</option>
                 </select>
-                <button type="submit" style="text-align: left !important;">See flights</button>
+
+            <button type="submit" id="submit" style="text-align: left !important;">See flights</button>
             </div>
 
 
@@ -68,6 +69,17 @@
         <div class="divRight">
 
         </div>
+    </div>
+    <div class="preload-images">
+        <img src="img/plane.jpg" alt="">
+        <img src="img/plane2.jpg" alt="">
+        <img src="img/plane3.jpg" alt="">
+        <img src="img/plane4.jpg" alt="">
+        <img src="img/plane5.jpg" alt="">
+        <img src="img/plane6.jpg" alt="">
+        <img src="img/plane7.jpg" alt="">
+        <img src="img/plane8.jpg" alt="">
+        <img src="img/plane9.jpg" alt="">
     </div>
     <script>
         //return date prikazan ko stisnemo return flight
@@ -93,6 +105,35 @@
         datum1.addEventListener('change', function() {
             datum2.disabled = false;
             datum2.min = datum1.value;
+        });
+        //----------------------------------------------------------------------------
+        const backgrounds = [
+            'url("img/plane.jpg")',
+            'url("img/plane2.jpg")',
+            'url("img/plane3.jpg")',
+            'url("img/plane4.jpg")',
+            'url("img/plane5.jpg")',
+            'url("img/plane6.jpg")',
+            'url("img/plane7.jpg")',
+            'url("img/plane8.jpg")'
+        ];
+
+        let currentBackground = 0;
+        let intervalId;
+
+        function changeBackground() {
+            document.querySelector('.divMain').style.backgroundImage = backgrounds[currentBackground];
+            currentBackground++;
+            if (currentBackground === backgrounds.length) {
+                clearInterval(intervalId);
+            }
+        }
+
+        document.getElementById('submit').addEventListener('click', function () {
+            currentBackground = 0;
+            document.querySelector('.divMain').style.backgroundImage = backgrounds[currentBackground];
+            clearInterval(intervalId);
+            intervalId = setInterval(changeBackground, 50);
         });
     </script>
 </body>
