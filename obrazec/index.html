@@ -20,7 +20,7 @@
                 </div>
                 <div class="imput-grup">
                     <label for="odhod">Mesto odhoda:</label>
-                    <select id="odhod" name="odhod">
+                    <select id="odhod" name="odhod" required>
                         <option value="ljubljana"  data-img-src="img/departure.png">Ljubljana</option>
                         <option value="maribor">Maribor</option>
                         <option value="celje">Celje</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="imput-grup"> <!-- location -->
                     <label for="prihod">Mesto prihoda:</label>
-                    <select id="prihod" name="prihod">
+                    <select id="prihod" name="prihod" required>
                         <option value="zagreb">Zagreb</option>
                         <option value="beograd">Beograd</option>
                         <option value="dunaj">Dunaj</option>
@@ -55,13 +55,13 @@
             </div>
             <div class="contentBotom">
                 <label for="razred">Izberite razred:</label>
-                <select id="razred" name="razred">
+                <select id="razred" name="razred" placeholder="Izberi razred" required>
                     <option value="economy">Economy</option>
                     <option value="business">Business</option>
                     <option value="firstclass">First-class</option>
                 </select>
 
-            <button type="submit" id="submit" style="text-align: left !important;">Prikazi karte</button>
+            <button type="submit" id="submit" onclick="functionSweat()">Prikazi karte</button>
             </div>
 
 
@@ -70,7 +70,7 @@
 
         </div>
     </div>
-    <!--nalozimo slike vnaprej-->>
+    <!--nalozimo slike vnaprej-->
     <div class="preload-images">
         <img src="img/plane.jpg" alt="">
         <img src="img/plane2.jpg" alt="">
@@ -82,6 +82,8 @@
         <img src="img/plane8.jpg" alt="">
         <img src="img/plane9.jpg" alt="">
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
     <script>
         //return date prikazan ko stisnemo return flight
         function showReturnDate() {
@@ -136,7 +138,10 @@
             clearInterval(intervalId);
             intervalId = setInterval(changeBackground, 50);
         });
+
+        function functionSweat() { 
+	    swal("Success!", "Podatke o vaši vam bomo kmalu poslali", "success");
+        }
     </script>
 </body>
-
 </html>
