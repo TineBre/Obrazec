@@ -1,22 +1,21 @@
 <html>
-
 <head>
     <title>Airplane reservation</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
     <link rel="shortcut icon" href="img/paper-plane.png" />
 </head>
-
 <body>
     <div class="divMain">
         <div class="divLeft">
             <div class="progres"> <!-- progres div -->
+                    <h1>LETALSKE KARTE</h1>
             </div>
             <div class="contentLeft">
                 <div class="wrapper">
                     <input type="radio" name="select" id="option-1" checked onclick="hideReturnDate()">
                     <label for="option-1" class="option option-1">
-                        <span>One way</span>
+                        <span>Enosmerna</span>
                     </label>
                 </div>
                 <div class="imput-grup">
@@ -36,7 +35,7 @@
                 <div class="wrapper">
                     <input type="radio" name="select" id="option-2" onclick="showReturnDate()">
                     <label for="option-2" class="option option-2">
-                        <span>Return</span>
+                        <span>Povratna</span>
                     </label>
                 </div>
                 <div class="imput-grup"> <!-- location -->
@@ -59,9 +58,10 @@
                 <select id="razred" name="razred">
                     <option value="economy">Economy</option>
                     <option value="business">Business</option>
+                    <option value="firstclass">First-class</option>
                 </select>
 
-            <button type="submit" id="submit" style="text-align: left !important;">See flights</button>
+            <button type="submit" id="submit" style="text-align: left !important;">Prikazi karte</button>
             </div>
 
 
@@ -70,6 +70,7 @@
 
         </div>
     </div>
+    <!--nalozimo slike vnaprej-->>
     <div class="preload-images">
         <img src="img/plane.jpg" alt="">
         <img src="img/plane2.jpg" alt="">
