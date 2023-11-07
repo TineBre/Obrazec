@@ -61,7 +61,7 @@
                     <option value="firstclass">First-class</option>
                 </select>
 
-            <button type="submit" id="submit" onclick="functionSweat()">Prikazi karte</button>
+            <button type="submit" id="submit" onclick="functionSweat()">Prikaži karte</button>
             </div>
 
 
@@ -142,6 +142,9 @@
         function functionSweat() { 
 	    swal("Success!", "Podatke o vaši vam bomo kmalu poslali", "success");
         }
+        //date required
+        document.getElementById("datum-odhoda").required = true;
+        document.getElementById("datum-prihoda").required = true;
     </script>
 </body>
 </html>

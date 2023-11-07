@@ -137,7 +137,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   padding: 0 10px;
-  border: 2px solid lightgrey;
+  border: 2px solid rgb(102, 102, 102);
   transition: all 0.3s ease;
 }
 input[type="radio"]{ /*ne pokaze default circles*/
@@ -150,7 +150,7 @@ input[type="radio"]{ /*ne pokaze default circles*/
 }
 .wrapper .option span{
   font-size: 20px;
-  color: #808080;
+  color: #626262;
 }
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span{
