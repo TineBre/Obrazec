@@ -1,0 +1,163 @@
+<html>
+
+<head>
+    <title>Airplane reservation</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <link rel="shortcut icon" href="img/paper-plane.png" />
+</head>
+
+<body>
+    <form action="/obdelava_obrazca" method="post">
+        <div class="divMain">
+            <div class="divLeft">
+                <div class="progres"> <!-- progres div -->
+                    <h1>LETALSKE KARTE</h1>
+                </div>
+                <div class="contentLeft">
+                    <div class="wrapper">
+                        <input type="radio" name="select" id="option-1" checked onclick="hideReturnDate()">
+                        <label for="option-1" class="option option-1">
+                            <span>Enosmerna</span>
+                        </label>
+                    </div>
+                    <div class="imput-grup">
+                        <label for="odhod">Mesto odhoda:</label>
+                        <select id="odhod" name="odhod" required>
+                            <option value="ljubljana" data-img-src="img/departure.png">Ljubljana</option>
+                            <option value="maribor">Maribor</option>
+                            <option value="celje">Celje</option>
+                        </select>
+                    </div>
+                    <div class="imput-grup">
+                        <label for="datum-odhoda">Datum odhoda:</label>
+                        <input type="date" id="datum-odhoda" name="datum-odhoda" required>
+                    </div>
+                </div>
+                <div class="contentRight">
+                    <div class="wrapper">
+                        <input type="radio" name="select" id="option-2" onclick="showReturnDate()">
+                        <label for="option-2" class="option option-2">
+                            <span>Povratna</span>
+                        </label>
+                    </div>
+                    <div class="imput-grup"> <!-- location -->
+                        <label for="prihod">Mesto prihoda:</label>
+                        <select id="prihod" name="prihod" required>
+                            <option value="zagreb">Zagreb</option>
+                            <option value="beograd">Beograd</option>
+                            <option value="dunaj">Dunaj</option>
+                        </select>
+                    </div>
+                    <div class="imput-grup">
+                        <label for="datum-prihoda" id="return-date-label" style="display: none;">Datum prihoda:</label>
+                        <input type="date" id="datum-prihoda" name="datum-prihoda" style="display: none;">
+                    </div>
+
+
+                </div>
+                <div class="contentBotom">
+                    <label for="razred">Izberite razred:</label>
+                    <select id="razred" name="razred" placeholder="Izberi razred" required>
+                        <option value="economy">Economy</option>
+                        <option value="business">Business</option>
+                        <option value="firstclass">First-class</option>
+                    </select>
+
+                    <button type="submit" id="submit" onclick="functionSweat()">Prikaži karte</button>
+                </div>
+
+
+            </div>
+            <div class="divRight">
+
+            </div>
+        </div>
+    </form>
+    <!--nalozimo slike vnaprej-->
+    <div class="preload-images">
+        <img src="img/plane.jpg" alt="">
+        <img src="img/plane2.jpg" alt="">
+        <img src="img/plane3.jpg" alt="">
+        <img src="img/plane4.jpg" alt="">
+        <img src="img/plane5.jpg" alt="">
+        <img src="img/plane6.jpg" alt="">
+        <img src="img/plane7.jpg" alt="">
+        <img src="img/plane8.jpg" alt="">
+        <img src="img/plane9.jpg" alt="">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        //return date prikazan ko stisnemo return flight
+        function showReturnDate() {
+            document.getElementById('datum-prihoda').style.display = 'block';
+            document.getElementById('return-date-label').style.display = 'block';
+        }
+    
+        function hideReturnDate() {
+            document.getElementById('datum-prihoda').style.display = 'none';
+            document.getElementById('return-date-label').style.display = 'none';
+        }
+    
+        //datumi
+        const datum1 = document.getElementById('datum-odhoda');
+        const datum2 = document.getElementById('datum-prihoda');
+    
+        // Postavljanje minimalnega datuma na prvem polju na trenutni datum
+        const danas = new Date().toISOString().split('T')[0];
+        datum1.min = danas;
+    
+        // Omogočanje drugega polja, ko se izbere prvi datum
+        datum1.addEventListener('change', function () {
+            datum2.disabled = false;
+            datum2.min = datum1.value;
+        });
+    
+        const backgrounds = [
+            'url("img/plane.jpg")',
+            'url("img/plane2.jpg")',
+            'url("img/plane3.jpg")',
+            'url("img/plane4.jpg")',
+            'url("img/plane5.jpg")',
+            'url("img/plane6.jpg")',
+            'url("img/plane7.jpg")',
+            'url("img/plane8.jpg")'
+        ];
+    
+        let currentBackground = 0;
+        let intervalId;
+    
+        function changeBackground() {
+            document.querySelector('.divMain').style.backgroundImage = backgrounds[currentBackground];
+            currentBackground++;
+            if (currentBackground === backgrounds.length) {
+                clearInterval(intervalId);
+                
+                // Dodajte kodo za oddajo obrazca po končani animaciji
+                document.getElementById('your-form-id').submit();
+            }
+        }
+    
+        document.getElementById('your-form-id').addEventListener('submit', function (event) {
+            // Prepreči privzeto obnašanje obrazca (npr. ponovno nalaganje strani)
+            event.preventDefault();
+    
+            // Nadaljujte s svojim obstoječim kodama za animacijo tukaj
+            currentBackground = 0;
+            document.querySelector('.divMain').style.backgroundImage = backgrounds[currentBackground];
+            clearInterval(intervalId);
+            intervalId = setInterval(changeBackground, 50);
+    
+            // Dodajte kodo za prikaz potrditve ali druge postopke
+            // Na primer: functionSweat();
+        });
+    
+        document.getElementById("datum-odhoda").required = true;
+        document.getElementById("datum-prihoda").required = true;
+    </script>
+    
+    
+</body>
+
+</html>
