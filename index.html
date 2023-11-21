@@ -11,7 +11,8 @@
     <form action="/obdelava_obrazca" method="post">
         <div class="divMain">
             <div class="divLeft">
-                <div class="progres"> <!-- progres div -->
+                <div class="progres">
+                    <!-- progres div -->
                     <h1>LETALSKE KARTE</h1>
                 </div>
                 <div class="contentLeft">
@@ -41,7 +42,8 @@
                             <span>Povratna</span>
                         </label>
                     </div>
-                    <div class="imput-grup"> <!-- location -->
+                    <div class="imput-grup">
+                        <!-- location -->
                         <label for="prihod">Mesto prihoda:</label>
                         <select id="prihod" name="prihod" required>
                             <option value="zagreb">Zagreb</option>
@@ -133,15 +135,31 @@
             currentBackground++;
             if (currentBackground === backgrounds.length) {
                 clearInterval(intervalId);
-                
+    
                 // Dodajte kodo za oddajo obrazca po končani animaciji
-                document.getElementById('your-form-id').submit();
+                document.getElementById('airplane-form').submit();
             }
         }
     
-        document.getElementById('your-form-id').addEventListener('submit', function (event) {
-            // Prepreči privzeto obnašanje obrazca (npr. ponovno nalaganje strani)
+        document.getElementById('submit').addEventListener('click', function (event) {
+            // Prepreči privzeto obnašanje gumba (npr. oddajo obrazca)
             event.preventDefault();
+    
+            // Preveri, ali so izpolnjena vidna polja za datum
+            const datumOdhoda = document.getElementById('datum-odhoda');
+            const datumPrihoda = document.getElementById('datum-prihoda');
+    
+            if (datumOdhoda.style.display !== 'none' && datumOdhoda.value === '') {
+                // Če je vidno in ni izpolnjeno, sproži SweetAlert
+                swal("Napaka!", "Izpolnite polje Datum odhoda.", "error");
+                return;
+            }
+    
+            if (datumPrihoda.style.display !== 'none' && datumPrihoda.value === '') {
+                // Če je vidno in ni izpolnjeno, sproži SweetAlert
+                swal("Napaka!", "Izpolnite polje Datum prihoda.", "error");
+                return;
+            }
     
             // Nadaljujte s svojim obstoječim kodama za animacijo tukaj
             currentBackground = 0;
@@ -151,13 +169,18 @@
     
             // Dodajte kodo za prikaz potrditve ali druge postopke
             // Na primer: functionSweat();
+    
+            // Po končani animaciji odprete naslednjo stran
+            setTimeout(function () {
+                window.location.href = 'index2.html';  // Predpostavljeno, da je "index2.html" v isti mapi
+            }, backgrounds.length * 50); // Uporabljamo čas animacije za določitev časa odprtja naslednje strani
         });
     
         document.getElementById("datum-odhoda").required = true;
         document.getElementById("datum-prihoda").required = true;
     </script>
-    
-    
+
+
 </body>
 
 </html>
